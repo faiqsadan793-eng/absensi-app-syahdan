@@ -1,0 +1,1 @@
+import{t as e}from"./app-DaYTJbxN.js";import t from"./LaporanBulanan-C5Tlh_q4.js";var n=e();function r(e){return(0,n.jsx)(t,{...e})}export{r as default};
