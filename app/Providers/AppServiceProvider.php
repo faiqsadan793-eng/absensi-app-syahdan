@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL; // <-- Tambahkan import ini jika belum ada
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Vite::prefetch(concurrency: 3);
+        // Paksa HTTPS di environment production (Railway)
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
